@@ -37,4 +37,17 @@
         white-space: nowrap;
       }
 
+      .underline-effect::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #333;
+        transition: width 0.4s;
+      }
       
+      .underline-effect:hover::after {
+        width: 100%;
+      }
