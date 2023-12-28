@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/auth.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <link rel="stylesheet" href="./css/styleguide.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html"><img src="./img/logo.svg" alt="Logo" class="logo"/></a>
+    <nav id="nav-links">
+      <a href="#" class="underline-effect nav-link">Courses</a>
+      <a href="#" class="underline-effect nav-link">Assignments</a>
+      <a href="#" class="underline-effect nav-link">Quizzes</a>
+      <a href="#" class="underline-effect nav-link">Discussion<br /><span>board</span></a>
+      <span>New</span>
+      <a href="#" class="underline-effect nav-link">Leaderboard</a>
+      <a href="#" class="underline-effect nav-link">Articles</a>
+      <a href="#" class="underline-effect nav-link">Progress</a>
+    </nav>
+    <div class="user-info">
+      <button id="sign-up-btn" class="link-navbar">Sign up</button>
+      <a href="#" class="text-wrapper-5">Log in</a>
+    </div>
+  </header>
+  <div class="form-structor">
+    <div class="signup">
+        <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+        <div class="form-holder">
+            <input type="text" class="input" placeholder="Name (optional)" />
+            <input type="email" class="input" placeholder="Email" required/>
+            <input type="password" class="input" placeholder="Password" required/>
+        </div>
+        <p>By registering, you agree to our <a href="#" style="color: blue; text-decoration: underline;">Terms of Services</a></p>
+        <button class="submit-btn">Sign up</button>
+    </div>
+    <div class="login slide-up">
+        <div class="center">
+            <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+            <div class="form-holder">
+                <input type="email" class="input" placeholder="Email" />
+                <input type="password" class="input" placeholder="Password" />
+            </div>
+            <a href="#" style="color: blue; text-decoration: underline;">Forgot password?</a>
+            <button class="submit-btn">Log in</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/auth.js"></script>
+</html>
