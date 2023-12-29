@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./css/styleguide.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
@@ -13,67 +14,84 @@
   </head>
   <body>
     <header class="navbar">
-      <a href="index.html"><img src="./img/logo.svg" alt="Logo" class="logo"/></a>
+      <a href="index.html"
+        ><img src="./img/logo.svg" alt="Logo" class="logo"
+      /></a>
       <nav id="nav-links">
         <a href="#" class="underline-effect nav-link">Courses</a>
         <a href="#" class="underline-effect nav-link">Assignments</a>
         <a href="#" class="underline-effect nav-link">Quizzes</a>
-        <a href="#" class="underline-effect nav-link">Discussion<br /><span>board</span></a>
-        <span>New</span>
+        <a href="#" class="underline-effect nav-link"
+          >Discussion<br />board</a
+        >
+        <span id="span-redtag-tag">New</span>
         <a href="#" class="underline-effect nav-link">Leaderboard</a>
         <a href="#" class="underline-effect nav-link">Articles</a>
         <a href="#" class="underline-effect nav-link">Progress</a>
       </nav>
-      <div class="user-info">
+      <div id="user-info">
+        <a href="#" id="log-in">Log in</a>
         <button id="sign-up-btn" class="link-navbar">Sign up</button>
-        <a href="#" class="text-wrapper-5">Log in</a>
       </div>
     </header>
     <main class="element">
-
       <div class="hero">
         <div class="content">
-            <img class="blob" src="./img/blob.svg" alt="Blob Image">
-            <div class="text-content">
-                <span id="welcome">Welcome to <strong>EduNest</strong></span>
-                <p class="text-wrapper">
-                    The ultimate online platform for learning computer science
-                    topics. Whether you are a student, or a professional, you will
-                    find something useful and interesting here. 🙌
-                </p>
-                <button class="primary-button text-wrapper-2">Explore all courses</button>
-            </div>
-            <img id="blob-container" src="./img/blob-container.svg" alt="Blob Container Image">
-            <img id="autumn-study-male" src="./img/autumn-study-male.svg" alt="Autumn Study Male Image">
+          <img class="blob" src="./img/blob.svg" alt="Blob Image" />
+          <div class="text-content">
+            <span id="welcome">Welcome to <strong>EduNest</strong></span>
+            <p class="text-wrapper">
+              The ultimate online platform for learning computer science topics.
+              Whether you are a student, or a professional, you will find
+              something useful and interesting here. 🙌
+            </p>
+            <button class="primary-button" id="primary-button-text">
+              Explore all courses
+            </button>
+          </div>
+          <img
+            id="blob-container"
+            src="./img/blob-container.svg"
+            alt="Blob Container Image"
+          />
+          <img
+            id="autumn-study-male"
+            src="./img/autumn-study-male.svg"
+            alt="Autumn Study Male Image"
+          />
         </div>
-    </div>
-    
-    
+      </div>
 
       <div class="card">
         <div class="card-item">
-            <img src="./img/female-student-question.svg" alt="Student with Question" />
-            <div class="text-content">
-                <p class="card-header">Assignments and quizzes!</p>
-                <span class="text-wrapper-6">
-                    Fun and challenging questions that test and improve your knowledge and skills.
-                </span>
-            </div>
+          <img
+            src="./img/female-student-question.svg"
+            alt="Student with Question"
+          />
+          <div class="text-content">
+            <p class="card-header">Assignments and quizzes!</p>
+            <span class="card-subheader">
+              Fun and challenging questions that test and improve your knowledge
+              and skills.
+            </span>
+          </div>
         </div>
         <div class="card-item">
-            <img src="./img/students-doing-a-guts-pose.svg" alt="Students Doing a Guts Pose" />
-            <div class="text-content">
-                <p class="card-header">Collaboration and competition!</p>
-                <span class="text-wrapper-6">
-                    Participate in discussions and competitions with other users.
-                </span>
-            </div>
+          <img
+            src="./img/students-doing-a-guts-pose.svg"
+            alt="Students Doing a Guts Pose"
+          />
+          <div class="text-content">
+            <p class="card-header">Collaboration and competition!</p>
+            <span class="card-subheader">
+              Participate in discussions and competitions with other users.
+            </span>
+          </div>
         </div>
-    </div>
-    
+      </div>
     </main>
     <footer>
-      <div class="frame-4">
+      <div class="frame">
         <a href="#"><img src="./img/icons8-linkedin.svg" /></a>
         <a href="#"><img src="./img/icons8-twitterx.svg" /></a>
         <a href="#"><img src="./img/icons8-instagram.svg" /></a>
@@ -83,8 +101,9 @@
         <a href="#" class="link-2">Privacy Policy</a>
         <a href="#" class="link-3">Terms of Use</a>
       </div>
-      <img class="placeholder-4" src="img/placeholder-10.png" />
-      <span style="font-weight: bold; font-family: cursive; font-size: large;">EduNest © 2023</span>
+      <span style="font-weight: bold; font-family: cursive; font-size: large"
+        >EduNest © 2023</span
+      >
     </footer>
   </body>
 </html>

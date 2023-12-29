@@ -1,0 +1,23 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+  }
+
+.frame {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    width: 54px;
+    /* gap: 15em; */
+    position: relative;
+    flex: 0 0 auto;
+}
+ 
+  #footer-logo{
+    height: auto;
+    width: 54px;
+  }

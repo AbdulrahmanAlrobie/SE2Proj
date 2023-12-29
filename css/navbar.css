@@ -2,10 +2,8 @@
         display: flex;
         justify-content: space-between;
         /* justify-content: flex-start; */
-        word-spacing: 10px;
         align-items: center;
         width: 95%;
-        padding: 0 20px;
         background-color: #ffffff;
       }
 
@@ -23,8 +21,12 @@
         width: 20vh;
         height: auto;
       }
+
+      #user-info{
+        display: flex;
+      }
       
-      .nav-link {
+      .nav-link, #log-in {
         position: relative;
         width: fit-content;
         margin-top: -1px;
@@ -35,6 +37,46 @@
         letter-spacing: 0.2px;
         line-height: 16px;
         white-space: nowrap;
+      }
+
+      #span-redtag-tag {
+        position: relative;
+        left: -2em;
+        top: .7em;
+        height: 100%;
+        width: 3em;
+        color: #fff;
+        font-size: .75em;
+        text-align: center;
+        border-radius: 10px;
+        background: linear-gradient(
+          180deg,
+          rgb(255, 91, 55) 0.52%,
+          rgb(171, 0, 82) 100%
+        );
+      }
+
+      #log-in{
+        margin-right: 2em;
+        align-items: center;
+        font-weight: bolder;
+      }
+      #sign-up-btn {
+        top: 5px;
+        -webkit-text-stroke: 1px #0000008c;
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 600;
+        color: #5D9FA5;
+        font: weight 900px;;
+        background-color: #A5635D;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+        line-height: 16px;
+        white-space: nowrap;
+      }
+      
+      #sign-up-btn:hover {
+        cursor: pointer;
       }
 
       .underline-effect::after {

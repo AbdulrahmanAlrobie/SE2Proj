@@ -7,14 +7,13 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-
 .hero {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #f4f4f4;
-  border-radius: 32px;
+  border-radius: 0 0 32px 32px;
 }
 
 .overlap-group {
@@ -25,8 +24,6 @@ body {
 .element .blob {
   position: relative;
 }
-
-
 
 #blob-container {
   position: absolute;
@@ -50,6 +47,18 @@ body {
   object-fit: cover;
 }
 
+#primary-button-text {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins-Medium", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 18px;
+  white-space: nowrap;
+}
 
 .primary-button {
   display: flex;
@@ -86,7 +95,7 @@ body {
   align-items: center;
 }
 
-.card .card-item img{
+.card .card-item img {
   width: 240px;
   height: auto;
 }
@@ -98,6 +107,16 @@ body {
   align-items: flex-start;
   top: -10em;
   left: -25em;
+}
+
+.text-content #welcome {
+  position: relative;
+  color: #333333;
+  width: 100%;
+  font-family: Poppins, 'Courier New', monospace;
+  font-size: 40px;
+  left: -20px;
+  top: .55em;
 }
 
 .element .text-wrapper {
@@ -112,15 +131,9 @@ body {
 }
 
 .card-header {
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: bolder;
   margin: 0;
-}
-
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
 }
 
 .underline-effect::after {
@@ -138,8 +151,7 @@ footer {
   width: 100%;
 }
 
-
-@media  (max-width: 960px) {
+@media (max-width: 960px) {
   .hero .text-content {
     position: relative;
     display: inline-flex;
@@ -148,29 +160,28 @@ footer {
     z-index: 1;
   }
 
-  .navbar{
+  .navbar {
     z-index: 10;
   }
 
   .element .text-wrapper {
     position: relative;
-    width: 100%; 
+    width: 100%;
     font-family: "Poppins-Regular", Helvetica;
     font-weight: 400;
     color: #252525;
-    font-size: 18px; 
+    font-size: 18px;
     letter-spacing: 0;
-    line-height: 26px; 
+    line-height: 26px;
   }
 
   .primary-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 20px; 
+    padding: 12px 20px;
     background-color: #333;
-    border-radius: 20px; 
+    border-radius: 20px;
     box-shadow: 4px 6px 0px #111;
   }
 }
-
