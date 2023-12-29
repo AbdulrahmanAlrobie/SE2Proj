@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/dbjs/10.7.1/db-app.js";
-import { getDatabase, set, ref} from "https://www.gstatic.com/dbjs/10.7.1/db-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/dbjs/10.7.1/db-auth.js";
-import { getAnalytics } from "https://www.gstatic.com/dbjs/10.7.1/db-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 // TODO: Add SDKs for db products that you want to use
 // https://db.google.com/docs/web/setup#available-libraries
 
@@ -11,6 +11,7 @@ import { getAnalytics } from "https://www.gstatic.com/dbjs/10.7.1/db-analytics.j
 const dbConfig = {
   apiKey: "AIzaSyD6ZB30EJWoiK3dHefpjHSIG1-2fsl4eYA",
   authDomain: "edunest-2d87c.dbapp.com",
+  databaseURL: "https://edunest-2d87c-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "edunest-2d87c",
   storageBucket: "edunest-2d87c.appspot.com",
   messagingSenderId: "661448680628",
@@ -21,24 +22,31 @@ const dbConfig = {
 // Initialize db
 const app = initializeApp(dbConfig);
 const db = getDatabase();
-const dbRef = ref(db);
-const analytics = getAnalytics(app);
+// const dbRef = ref(db);
+// const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 
 const loginForm = document.getElementById('login-form');
 const signupForm = document.getElementById('signup-form');
-const loginEmail = document.getElementById('login-email');
-const loginPassword = document.getElementById('login-password');
 const signupEmail = document.getElementById('signup-email');
 const signupPassword = document.getElementById('signup-password');
-const username = document.getElementById('username').value;
-const displayName = document.getElementById('display-name').value;
 const loginBtn = document.querySelector('#login');
+const forgotPassword = document.getElementById('forgot-password');
 const signupBtn = document.querySelector('#signup');
 
 
 // Slide animations:
+
+window.onload = function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const formToShow = urlParams.get('form');
+  if (formToShow === 'login') {
+    document.getElementById('login').click();
+  } else if (formToShow === 'signup') {
+    document.getElementById('signup').click();
+  }
+};
 
 loginBtn.addEventListener('click', (e) => {
 	let parent = e.target.parentNode.parentNode;
@@ -69,38 +77,56 @@ signupBtn.addEventListener('click', (e) => {
   // Authentication logic:
   loginForm.addEventListener('submit', (e) => {
 	e.preventDefault();
-	const email = loginEmail.value;
-	const password = loginPassword.value;
-	signInWithEmailAndPassword(email, password)
-	  .then((userCredential) => {
-		const user = userCredential.user;
-		window.location.href = './index.html';
-	  })
-	  .catch((error) => {
-		const errorCode = error.code;
-		const errorMessage = error.message;
-	  });
-  });
-  
-  signupForm.addEventListener('submit', (e) => {
-	e.preventDefault();
 	const email = signupEmail.value;
 	const password = signupPassword.value;
-	createUserWithEmailAndPassword(email, password)
+	signInWithEmailAndPassword(auth, email, password)
 	  .then((userCredential) => {
 		const user = userCredential.user;
-
-		set(ref(db, 'users/' + user.uid),{
-		  username: username,
-		  displayName: displayName,
-		  email: email
-		});
-  
 		window.location.href = './index.html';
+	  })
+	  .catch((error) => {
+		alert(error.message);
+	  });
+  });
+
+  forgotPassword.addEventListener('click', function(e) {
+	e.preventDefault(); 
+	const email = document.getElementById('login-email').value;  
+	sendPasswordResetEmail(auth, email)
+	  .then(() => {
+		alert('Password reset email sent!');
 	  })
 	  .catch((error) => {
 		const errorCode = error.code;
 		const errorMessage = error.message;
+		// ..
 		alert(errorMessage);
 	  });
   });
+  
+	
+  
+signupForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const email = signupEmail.value;
+	const password = signupPassword.value;
+	const displayName = document.getElementById('sign-up-display-name').value;
+	const username = document.getElementById('sign-up-username').value;
+	createUserWithEmailAndPassword(auth, email, password)
+	  .then((userCredential) => {
+		const user = userCredential.user;
+  
+		set(ref(db, 'users/' + user.uid),{
+			username: username,
+			displayName: displayName ?? username,
+			email: email,
+			role: 'user'
+		  });
+  
+		window.location.href = './index.html';
+	  })
+	  .catch((error) => {
+		alert(error.errorMessage);
+	  });
+  });
+  

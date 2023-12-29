@@ -216,6 +216,20 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   width: 100%;
   font-size: 12px;
 }
+
+#forgot-password {
+  display: inline-flex;
+  margin-bottom: .5em;
+  margin-left: .5em;
+  text-align: right;
+  color: #333;
+  text-decoration: none;
+}
+
+#forgot-password:hover {
+  text-decoration: underline;
+}
+
 .form-structor .login .center .form-holder .input:last-child {
   border-bottom: 0;
 }
