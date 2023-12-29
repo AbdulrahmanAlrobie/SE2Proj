@@ -113,10 +113,10 @@ body {
   position: relative;
   color: #333333;
   width: 100%;
-  font-family: Poppins, 'Courier New', monospace;
+  font-family: Poppins, "Courier New", monospace;
   font-size: 40px;
   left: -20px;
-  top: .55em;
+  top: 0.55em;
 }
 
 .element .text-wrapper {

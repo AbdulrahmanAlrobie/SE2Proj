@@ -2,15 +2,30 @@
 body .form-structor {
   position: relative;
   min-height: 100vh;
-  background: 
-  radial-gradient(black 3px, transparent 4px),
-  radial-gradient(black 3px, transparent 4px),
-  linear-gradient(#09a5e999 4px, transparent 0),
-  linear-gradient(45deg, transparent 74px, transparent 75px, #a4a4a4 75px, #a4a4a4 76px, transparent 77px, transparent 109px),
-  linear-gradient(-45deg, transparent 75px, transparent 76px, #a4a4a4 76px, #a4a4a4 77px, transparent 78px, transparent 109px),
-  #09a5e999;
-background-size: 109px 109px, 109px 109px,100% 6px, 109px 109px, 109px 109px;
-background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+  background: radial-gradient(black 3px, transparent 4px),
+    radial-gradient(black 3px, transparent 4px),
+    linear-gradient(#09a5e999 4px, transparent 0),
+    linear-gradient(
+      45deg,
+      transparent 74px,
+      transparent 75px,
+      #a4a4a4 75px,
+      #a4a4a4 76px,
+      transparent 77px,
+      transparent 109px
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 75px,
+      transparent 76px,
+      #a4a4a4 76px,
+      #a4a4a4 77px,
+      transparent 78px,
+      transparent 109px
+    ),
+    #09a5e999;
+  background-size: 109px 109px, 109px 109px, 100% 6px, 109px 109px, 109px 109px;
+  background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
 
   display: flex;
   align-items: center;
@@ -55,8 +70,6 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   z-index: 5;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
-
-
 }
 .form-structor .signup.slide-up {
   top: 5%;
@@ -65,7 +78,8 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   -webkit-transform: translate(-50%, 0%);
   -webkit-transition: all 0.3s ease;
 }
-.form-structor .signup.slide-up .form-holder, .form-structor .signup.slide-up .submit-btn {
+.form-structor .signup.slide-up .form-holder,
+.form-structor .signup.slide-up .submit-btn {
   opacity: 0;
   visibility: hidden;
 }
@@ -154,7 +168,7 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   -webkit-transition: all 0.3s ease;
 }
 .form-structor .login::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: -20px;
@@ -219,8 +233,8 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
 
 #forgot-password {
   display: inline-flex;
-  margin-bottom: .5em;
-  margin-left: .5em;
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
   text-align: right;
   color: #333;
   text-decoration: none;
@@ -237,7 +251,7 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   color: rgba(0, 0, 0, 0.4);
 }
 .form-structor .login .center .submit-btn {
-  background-color: #6B92A4;
+  background-color: #6b92a4;
   color: rgba(255, 255, 255, 0.7);
   border: 0;
   border-radius: 15px;
@@ -270,7 +284,8 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
 }
-.form-structor .login.slide-up .form-holder, .form-structor .login.slide-up .submit-btn {
+.form-structor .login.slide-up .form-holder,
+.form-structor .login.slide-up .submit-btn {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -292,37 +307,36 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
   -webkit-transition: all 0.3s ease;
 }
 
-.form-structor .login.slide-up .form-holder, .form-structor .login.slide-up .submit-btn {
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-  }
-  
+.form-structor .login.slide-up .form-holder,
+.form-structor .login.slide-up .submit-btn {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 
-  @media (max-width: 768px) {
-    .form-structor {
-      width: 100%;
-      height: 100vh;
-    }
-  
-    .form-structor .signup {
-      width: 80%;
-      margin-top: 50px;
-    }
-  
-    .form-structor .login {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100vh;
-    }
-  
-    .form-structor .login .center {
-      width: 80%;
-      margin-top: 50px;
-    }
+@media (max-width: 768px) {
+  .form-structor {
+    width: 100%;
+    height: 100vh;
   }
 
+  .form-structor .signup {
+    width: 80%;
+    margin-top: 50px;
+  }
+
+  .form-structor .login {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .form-structor .login .center {
+    width: 80%;
+    margin-top: 50px;
+  }
+}
