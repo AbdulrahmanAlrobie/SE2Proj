@@ -53,7 +53,9 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
 
   width: 65%;
   z-index: 5;
+  transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
+
 
 }
 .form-structor .signup.slide-up {
@@ -310,4 +312,3 @@ background-position: 54px 55px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
     }
   }
 
-  
