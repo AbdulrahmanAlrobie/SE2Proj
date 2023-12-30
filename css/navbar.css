@@ -28,7 +28,8 @@
 }
 
 .nav-link,
-#log-in, #account {
+#log-in,
+#account {
   position: relative;
   width: fit-content;
   margin-top: -1px;
@@ -59,12 +60,14 @@
   );
 }
 
-#log-in, #account {
+#log-in,
+#account {
   margin-right: 2em;
   align-items: center;
   font-weight: bolder;
 }
-#sign-up-btn, #sign-out-btn {
+#sign-up-btn,
+#sign-out-btn {
   top: 5px;
   -webkit-text-stroke: 1px #0000008c;
   font-family: "Inter-Medium", Helvetica;
@@ -78,7 +81,8 @@
   white-space: nowrap;
 }
 
-#sign-up-btn:hover, #sign-out-btn:hover {
+#sign-up-btn:hover,
+#sign-out-btn:hover {
   cursor: pointer;
 }
 

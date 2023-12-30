@@ -112,7 +112,8 @@ export function initAuth() {
     const email = signupEmail.value;
     const password = signupPassword.value;
     const username = document.getElementById("sign-up-username").value;
-    const displayName = document.getElementById("sign-up-display-name").value || username;
+    const displayName =
+      document.getElementById("sign-up-display-name").value.trim() || username;
 
     get(ref(db, "usernames/" + username)).then((snapshot) => {
       if (snapshot.exists()) {

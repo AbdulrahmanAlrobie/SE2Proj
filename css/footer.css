@@ -6,7 +6,7 @@ footer {
   margin: 2em;
 }
 
-.frame *{
+.frame * {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
@@ -17,13 +17,11 @@ footer {
   flex: 0 0 auto;
 }
 
-.links *{
+.links * {
   text-decoration: none;
   color: #333;
   padding: 2em;
 }
-
-
 
 #footer-logo {
   height: auto;
