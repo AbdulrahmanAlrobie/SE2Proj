@@ -3,9 +3,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 2em;
 }
 
-.frame {
+.frame *{
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
@@ -15,6 +16,14 @@ footer {
   position: relative;
   flex: 0 0 auto;
 }
+
+.links *{
+  text-decoration: none;
+  color: #333;
+  padding: 2em;
+}
+
+
 
 #footer-logo {
   height: auto;

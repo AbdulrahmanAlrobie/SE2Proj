@@ -24,13 +24,15 @@
 
 #user-info {
   display: flex;
+  align-items: center;
 }
 
 .nav-link,
-#log-in {
+#log-in, #account {
   position: relative;
   width: fit-content;
   margin-top: -1px;
+  margin-right: 2em;
   font-family: "Inter-Medium", Helvetica;
   font-weight: 500;
   color: #09a5e999;
@@ -57,12 +59,12 @@
   );
 }
 
-#log-in {
+#log-in, #account {
   margin-right: 2em;
   align-items: center;
   font-weight: bolder;
 }
-#sign-up-btn {
+#sign-up-btn, #sign-out-btn {
   top: 5px;
   -webkit-text-stroke: 1px #0000008c;
   font-family: "Inter-Medium", Helvetica;
@@ -76,7 +78,7 @@
   white-space: nowrap;
 }
 
-#sign-up-btn:hover {
+#sign-up-btn:hover, #sign-out-btn:hover {
   cursor: pointer;
 }
 
