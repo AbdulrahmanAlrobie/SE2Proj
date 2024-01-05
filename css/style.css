@@ -96,7 +96,7 @@ body {
 }
 
 .card .card-item img {
-  width: 240px;
+  width: 180px;
   height: auto;
 }
 
@@ -134,6 +134,14 @@ body {
   font-family: "Poppins-Regular", Helvetica;
   font-weight: bolder;
   margin: 0;
+}
+
+.text-content {
+  padding: 0.8em;
+}
+
+#middle-card-text{
+padding: 0;
 }
 
 .underline-effect::after {

@@ -8,9 +8,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import {
   getAuth,
+  setPersistence,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  browserSessionPersistence,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
@@ -31,15 +33,14 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const auth = getAuth(app);
 
-export function initAuth() {
-  const loginForm = document.getElementById("login-form");
-  const signupForm = document.getElementById("signup-form");
-  const signupEmail = document.getElementById("signup-email");
-  const signupPassword = document.getElementById("signup-password");
+export function initStyle() {
   const loginBtn = document.querySelector("#login");
-  const forgotPassword = document.getElementById("forgot-password");
   const signupBtn = document.querySelector("#signup");
-
+  const chekcBox = document.getElementById("remember-me");
+  const signUpPasswordInput = document.getElementById("signup-password");
+  const loginPasswordInput = document.getElementById("login-password");
+  const signUpToggleBtn = document.getElementById("toggle-signup-password");
+  const loginToggleBtn = document.getElementById("toggle-login-password");
   window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
     const formToShow = urlParams.get("form");
@@ -80,6 +81,40 @@ export function initAuth() {
     });
   });
 
+  addTogglePasswordEventListener(
+    loginToggleBtn,
+    loginPasswordInput,
+    "eye-icon-login"
+  );
+  addTogglePasswordEventListener(
+    signUpToggleBtn,
+    signUpPasswordInput,
+    "eye-icon-signup"
+  );
+}
+function addTogglePasswordEventListener(button, input, eyeIconId) {
+  var eyeIcon = document.getElementById(eyeIconId);
+  button.addEventListener("mousedown", function () {
+    input.type = "text";
+    eyeIcon.className = "fas fa-eye-slash";
+  });
+  button.addEventListener("mouseup", function () {
+    input.type = "password";
+    eyeIcon.className = "fas fa-eye";
+  });
+  button.addEventListener("mouseout", function () {
+    input.type = "password";
+    eyeIcon.className = "fas fa-eye";
+  });
+}
+
+export function initAuth() {
+  const loginForm = document.getElementById("login-form");
+  const forgotPassword = document.getElementById("forgot-password");
+  const signupForm = document.getElementById("signup-form");
+  const signupEmail = document.getElementById("signup-email");
+  const signupPassword = document.getElementById("signup-password");
+
   // Authentication logic:
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -88,6 +123,12 @@ export function initAuth() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setPersistence(
+          auth,
+          this.chekcBox.checked
+            ? firebase.Auth.Persistence.LOCAL
+            : firebase.Auth.Persistence.SESSION
+        );
         window.location.href = "./index.html";
       })
       .catch((error) => {
@@ -139,5 +180,4 @@ export function initAuth() {
     });
   });
 }
-
 export { auth };

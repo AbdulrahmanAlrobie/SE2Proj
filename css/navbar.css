@@ -1,7 +1,6 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  /* justify-content: flex-start; */
   align-items: center;
   width: 95%;
   background-color: #ffffff;
@@ -68,12 +67,10 @@
 }
 #sign-up-btn,
 #sign-out-btn {
-  top: 5px;
   -webkit-text-stroke: 1px #0000008c;
   font-family: "Inter-Medium", Helvetica;
-  font-weight: 600;
   color: #5d9fa5;
-  font: weight 900px;
+  font-weight: 900;
   background-color: #a5635d;
   font-size: 15px;
   letter-spacing: 0.2px;
