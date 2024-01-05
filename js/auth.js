@@ -12,9 +12,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  browserLocalPersistence,
   browserSessionPersistence,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6ZB30EJWoiK3dHefpjHSIG1-2fsl4eYA",
@@ -33,12 +33,11 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const auth = getAuth(app);
 
+const signUpPassword = document.getElementById("signup-password");
+const loginPassword = document.getElementById("login-password");
 export function initStyle() {
   const loginBtn = document.querySelector("#login");
   const signupBtn = document.querySelector("#signup");
-  const chekcBox = document.getElementById("remember-me");
-  const signUpPasswordInput = document.getElementById("signup-password");
-  const loginPasswordInput = document.getElementById("login-password");
   const signUpToggleBtn = document.getElementById("toggle-signup-password");
   const loginToggleBtn = document.getElementById("toggle-login-password");
   window.onload = function () {
@@ -50,6 +49,12 @@ export function initStyle() {
       document.getElementById("signup").click();
     }
   };
+
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      window.location.href = "./index.html";
+    }
+  });
 
   loginBtn.addEventListener("click", (e) => {
     let parent = e.target.parentNode.parentNode;
@@ -83,12 +88,12 @@ export function initStyle() {
 
   addTogglePasswordEventListener(
     loginToggleBtn,
-    loginPasswordInput,
+    loginPassword,
     "eye-icon-login"
   );
   addTogglePasswordEventListener(
     signUpToggleBtn,
-    signUpPasswordInput,
+    signUpPassword,
     "eye-icon-signup"
   );
 }
@@ -109,36 +114,35 @@ function addTogglePasswordEventListener(button, input, eyeIconId) {
 }
 
 export function initAuth() {
+  const signUpForm = document.getElementById("signup-form");
   const loginForm = document.getElementById("login-form");
+  const signUpEmail = document.getElementById("signup-email");
+  const loginEmail = document.getElementById("login-email");
   const forgotPassword = document.getElementById("forgot-password");
-  const signupForm = document.getElementById("signup-form");
-  const signupEmail = document.getElementById("signup-email");
-  const signupPassword = document.getElementById("signup-password");
+  const checkBox = document.getElementById("remember-me");
 
   // Authentication logic:
+
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = signupEmail.value;
-    const password = signupPassword.value;
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        setPersistence(
-          auth,
-          this.chekcBox.checked
-            ? firebase.Auth.Persistence.LOCAL
-            : firebase.Auth.Persistence.SESSION
-        );
-        window.location.href = "./index.html";
-      })
-      .catch((error) => {
+    const email = loginEmail.value;
+    const password = loginPassword.value;
+
+    setPersistence(
+      auth,
+      checkBox.checked
+        ? browserLocalPersistence
+        : browserSessionPersistence
+    ).then(() => {
+      signInWithEmailAndPassword(auth, email, password).catch((error) => {
         alert(error.message);
       });
+    });
   });
 
   forgotPassword.addEventListener("click", function (e) {
     e.preventDefault();
-    const email = document.getElementById("login-email").value;
+    const email = loginEmail.value;
     sendPasswordResetEmail(auth, email)
       .then(() => {
         alert("Password reset email sent!");
@@ -148,10 +152,10 @@ export function initAuth() {
       });
   });
 
-  signupForm.addEventListener("submit", (e) => {
+  signUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = signupEmail.value;
-    const password = signupPassword.value;
+    const email = signUpEmail.value;
+    const password = signUpPassword.value;
     const username = document.getElementById("sign-up-username").value;
     const displayName =
       document.getElementById("sign-up-display-name").value.trim() || username;
@@ -171,7 +175,6 @@ export function initAuth() {
             });
             set(ref(db, "usernames/" + username), user.uid);
 
-            window.location.href = "./index.html";
           })
           .catch((error) => {
             alert(error.message);
@@ -181,3 +184,4 @@ export function initAuth() {
   });
 }
 export { auth };
+export { db };

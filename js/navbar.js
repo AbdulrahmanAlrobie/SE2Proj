@@ -1,23 +1,35 @@
-import { auth } from "../js/auth.js";
+import { auth, db, } from "../js/auth.js";
+import { ref, onValue, } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
 
 auth.onAuthStateChanged(function (user) {
-  var userInfo = document.getElementById("user-info");
+  const userInfo = document.getElementById("user-info");
+
   if (user) {
     // User is signed in.
-    userInfo.innerHTML = `
-      <a href="account.html" id="account">Account</a>
-      <button id="sign-out-btn" class="link-navbar">Sign out</button>
-    `;
-    document
-      .getElementById("sign-out-btn")
-      .addEventListener("click", function () {
-        auth
-          .signOut()
-          .then(() => {})
-          .catch((error) => {
-            alert(error.message);
-          });
-      });
+    const userRef = ref(db, 'users/' + user.uid);
+
+    // Listen for changes in the user's data
+    onValue(userRef, (snapshot) => {
+      const data = snapshot.val();
+      const userDisplayName = data.displayName;
+
+      // Update the UI
+      userInfo.innerHTML = `
+        <a href="account.html" id="account">${userDisplayName}</a>
+        <button id="sign-out-btn" class="link-navbar">Sign out</button>
+      `;
+      document
+        .getElementById("sign-out-btn")
+        .addEventListener("click", function () {
+          auth
+            .signOut()
+            .then(() => { })
+            .catch((error) => {
+              alert(error.message);
+            });
+        });
+    });
   } else {
     // User is not signed in.
     userInfo.innerHTML = `

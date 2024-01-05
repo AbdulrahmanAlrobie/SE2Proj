@@ -47,7 +47,7 @@ body {
   object-fit: cover;
 }
 
-#primary-button-text {
+.primary-button-text {
   position: relative;
   width: fit-content;
   margin-top: -1px;
@@ -140,8 +140,8 @@ body {
   padding: 0.8em;
 }
 
-#middle-card-text{
-padding: 0;
+#middle-card-text {
+  padding: 0;
 }
 
 .underline-effect::after {

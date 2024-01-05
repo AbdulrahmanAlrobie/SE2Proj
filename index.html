@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
     />
+    <title>EduNest</title>
   </head>
   <body>
     <header class="navbar">
@@ -18,7 +19,7 @@
         ><img src="./img/logo.svg" alt="Logo" class="logo"
       /></a>
       <nav id="nav-links">
-        <a href="#" class="underline-effect nav-link">Courses</a>
+        <a href="./courses.html" class="underline-effect nav-link">Courses</a>
         <a href="#" class="underline-effect nav-link">Assignments</a>
         <a href="#" class="underline-effect nav-link">Quizzes</a>
         <a href="#" class="underline-effect nav-link">Discussion<br />board</a>
@@ -49,7 +50,10 @@
               Whether you are a student, or a professional, you will find
               something useful and interesting here. 🙌
             </p>
-            <button class="primary-button" id="primary-button-text">
+            <button
+              class="primary-button primary-button-text"
+              id="explore-button"
+            >
               Explore all courses
             </button>
           </div>
@@ -68,14 +72,12 @@
 
       <div class="card">
         <div class="card-item">
-          <img
-            src="./img/bookshelf-3.svg"
-            alt="Bookshelf"
-          />
+          <img src="./img/bookshelf-3.svg" alt="Bookshelf" />
           <div class="text-content">
             <p class="card-header">Learning materials!</p>
             <span class="card-subheader">
-              Expand your knowledge with a vast variety of courses in the domain of computer science.
+              Expand your knowledge with a vast variety of courses in the domain
+              of computer science.
             </span>
           </div>
         </div>
@@ -123,4 +125,5 @@
     </footer>
   </body>
   <script type="module" src="./js/navbar.js"></script>
+  <script src="./js/index.js"></script>
 </html>

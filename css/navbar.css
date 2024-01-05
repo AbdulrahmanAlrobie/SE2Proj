@@ -63,24 +63,40 @@
 #account {
   margin-right: 2em;
   align-items: center;
+  font-size: 17px;
   font-weight: bolder;
 }
+
 #sign-up-btn,
 #sign-out-btn {
-  -webkit-text-stroke: 1px #0000008c;
-  font-family: "Inter-Medium", Helvetica;
-  color: #5d9fa5;
-  font-weight: 900;
-  background-color: #a5635d;
-  font-size: 15px;
-  letter-spacing: 0.2px;
-  line-height: 16px;
+  align-items: center;
+  background-image: linear-gradient(144deg, #86fffb, #5da5a0 50%, #3972c1);
+  color: #e0fafb;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 17px;
+  font-weight: bolder;
+  justify-content: center;
+  line-height: 1em;
+  width: 6em;
+  height: auto;
+  max-width: 100%;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   white-space: nowrap;
+  cursor: pointer;
 }
 
+#sign-up-btn:active,
 #sign-up-btn:hover,
+#sign-out-btn:active,
 #sign-out-btn:hover {
-  cursor: pointer;
+  outline: 0;
 }
 
 .underline-effect::after {
