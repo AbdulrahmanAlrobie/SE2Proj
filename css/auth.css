@@ -1,29 +1,6 @@
 body .form-structor {
   position: relative;
   min-height: 87vh;
-  /* background: radial-gradient(black 3px, transparent 4px),
-    radial-gradient(black 3px, transparent 4px),
-    linear-gradient(#09a5e999 4px, transparent 0),
-    linear-gradient(
-      45deg,
-      transparent 74px,
-      transparent 75px,
-      #a4a4a4 75px,
-      #a4a4a4 76px,
-      transparent 77px,
-      transparent 109px
-    ),
-    linear-gradient(
-      -45deg,
-      transparent 75px,
-      transparent 76px,
-      #a4a4a4 76px,
-      #a4a4a4 77px,
-      transparent 78px,
-      transparent 109px
-    ),
-    #09a5e999; */
-  /* background-position: 0px 100em, 0px 0px, 0px 0px, 0px 0px, 0px 0px; */
   background-image: url(../img/low-poly-grid.svg);
   display: flex;
   align-items: center;
@@ -155,7 +132,6 @@ body .form-structor {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   transform: translate(-50%, 0%);
-  /* background-color: #fff; */
   background-color: #f4f4f4;
 
   width: 200%;
@@ -323,7 +299,21 @@ body .form-structor {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+input:not(:placeholder-shown)::placeholder {
+  color: transparent;
+}
 @media (max-width: 768px) {
   .form-structor {
     width: 100%;

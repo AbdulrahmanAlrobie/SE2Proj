@@ -84,7 +84,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px;
+  padding: 1em;
   background-color: #ffffff;
   border-radius: 32px;
   border: 1px solid #111111;
@@ -137,7 +137,9 @@ body {
 }
 
 .text-content {
-  padding: 0.8em;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8em 0 0.8em 0.8em;
 }
 
 #middle-card-text {
