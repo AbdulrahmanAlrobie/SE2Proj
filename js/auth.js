@@ -1,37 +1,16 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
-  getDatabase,
+  auth,
+  db,
   set,
   ref,
   get,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-import {
-  getAuth,
   setPersistence,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   browserLocalPersistence,
   browserSessionPersistence,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD6ZB30EJWoiK3dHefpjHSIG1-2fsl4eYA",
-  authDomain: "edunest-2d87c.dbapp.com",
-  databaseURL:
-    "https://edunest-2d87c-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "edunest-2d87c",
-  storageBucket: "edunest-2d87c.appspot.com",
-  messagingSenderId: "661448680628",
-  appId: "1:661448680628:web:26be9e0c2411ec25afe3e1",
-  measurementId: "G-MPQR8L0QLZ",
-};
-
-// Initialize db
-const app = initializeApp(firebaseConfig);
-const db = getDatabase();
-const auth = getAuth(app);
+} from "../firebaseConfig.js";
 
 const signUpPassword = document.getElementById("signup-password");
 const loginPassword = document.getElementById("login-password");
@@ -130,9 +109,7 @@ export function initAuth() {
 
     setPersistence(
       auth,
-      checkBox.checked
-        ? browserLocalPersistence
-        : browserSessionPersistence
+      checkBox.checked ? browserLocalPersistence : browserSessionPersistence
     ).then(() => {
       signInWithEmailAndPassword(auth, email, password).catch((error) => {
         alert(error.message);
@@ -174,7 +151,6 @@ export function initAuth() {
               role: "user",
             });
             set(ref(db, "usernames/" + username), user.uid);
-
           })
           .catch((error) => {
             alert(error.message);
@@ -183,5 +159,5 @@ export function initAuth() {
     });
   });
 }
-export { auth };
-export { db };
+// export { auth };
+// export { db };

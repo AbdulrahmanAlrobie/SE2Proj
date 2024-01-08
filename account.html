@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Courses</title>
     <link rel="stylesheet" href="./css/styleguide.css" />
-    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/account.css" />
     <link rel="stylesheet" href="./css/footer.css" />
   </head>
   <body>
@@ -36,8 +36,55 @@
       </div>
     </header>
     <main>
-      
+      <div class="background">
+        <h1>Hello Display name</h1>
+      </div>
+      <div class="info">
+        <div class="upper-cards">
+          <div class="card details">
+            <div class="card-header">
+              <h2>Personal information</h2>
+            </div>
+            <div class="user-info">
+              <div class="input-group">
+                <div>
+                  <label>Username</label>
+                  <input type="text" />
+                </div>
+                <div>
+                  <label>Email address</label>
+                  <input type="text" />
+                </div>
+              </div>
+              <div class="input-group">
+                <div>
+                  <label>Password</label>
+                  <input type="password" />
+                </div>
+                <div id="confirm">
+                  <label>Confirm password</label>
+                  <input type="password" />
+                </div>
+              </div>
+            </div>
+            <button class="update">Update</button>
+            <button class="delete">Delete account</button>
+          </div>
+          <div class="card avatar">
+            <img src="./img/avatars/default.png" alt="Avatar" />
+            <h4>Display name</h4>
+            <p>يختار لون للعصفور ويغير اسم/لون العرض هنا</p>
+          </div>
+        </div>
+        <div class="card progress">
+          <h2>Progress</h2>
+          هنا تطلع الشارات (اذا خلص كورس او.. تحدي؟)<br />و احصائيات (مثل كم من
+          الكورسات خلص، وممكن قراف يطلع الدروس بالنسبة لليوم او الي هو) وافكر
+          احط ستريك يومي
+        </div>
+      </div>
     </main>
+
     <footer>
       <div class="frame">
         <a href="#"><img src="./img/icons8-linkedin.svg" /></a>
@@ -45,13 +92,11 @@
         <a href="#"><img src="./img/icons8-instagram.svg" /></a>
       </div>
       <div class="links">
-        <a href="#" id="about">About Us</a>
-        <a href="#" id="policy">Privacy Policy</a>
-        <a href="#" id="tos">Terms of Use</a>
+        <a href="index.html#about">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
       </div>
-      <span style="font-weight: bold; font-family: cursive; font-size: large"
-        >EduNest © 2023</span
-      >
+      <span id="copyright">EduNest © 2023</span>
     </footer>
   </body>
   <script type="module" src="./js/navbar.js"></script>
