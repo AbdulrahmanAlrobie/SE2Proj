@@ -3,9 +3,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import {
   getDatabase,
   set,
+  push,
   ref,
+  child,
   get,
-  onValue
+  onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import {
   getAuth,
@@ -36,7 +39,14 @@ const db = getDatabase();
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
-
 export { db, auth, analytics };
-export { set, ref, get, onValue };
-export { getAuth, setPersistence, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, browserLocalPersistence, browserSessionPersistence };
+export { set, push, ref, child, get, remove, onValue };
+export {
+  getAuth,
+  setPersistence,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  browserLocalPersistence,
+  browserSessionPersistence,
+};

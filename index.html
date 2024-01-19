@@ -15,21 +15,31 @@
   </head>
   <body>
     <header class="navbar">
-      <a href="index.html"
-        ><img src="./img/logo.svg" alt="Logo" class="logo"
-      /></a>
-      <nav id="nav-links">
-        <a href="./courses.html" class="underline-effect nav-link">Courses</a>
-        <a href="#" class="underline-effect nav-link">Assignments</a>
-        <a href="#" class="underline-effect nav-link">Quizzes</a>
-        <a href="#" class="underline-effect nav-link">Discussion<br />board</a>
-        <span id="span-redtag-tag">New</span>
-        <a href="#" class="underline-effect nav-link">Leaderboard</a>
-        <a href="#" class="underline-effect nav-link">Articles</a>
-        <a href="#" class="underline-effect nav-link">Progress</a>
-      </nav>
-      <div id="user-info"></div>
+      <a href="index.html">
+        <img src="./img/logo.svg" alt="Logo" class="logo">
+      </a>
+    
+      <div id="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    
+      <div id="nav-container">
+        <nav id="nav-links">
+          <a href="./courses.html" class="underline-effect nav-link">Courses</a>
+          <a href="#" class="underline-effect nav-link">Assignments</a>
+          <a href="#" class="underline-effect nav-link">Quizzes</a>
+          <a href="#" class="underline-effect nav-link">Discussion<br />board</a>
+          <span id="span-redtag-tag">New</span>
+          <a href="#" class="underline-effect nav-link">Leaderboard</a>
+          <a href="#" class="underline-effect nav-link">Articles</a>
+          <a href="#" class="underline-effect nav-link">Progress</a>
+        </nav>
+        <div id="user-info"></div>
+      </div>
     </header>
+
     <main>
       <div class="hero">
         <div class="content">
@@ -63,7 +73,7 @@
 
       <div class="card">
         <div class="card-item">
-          <img src="./img/bookshelf-3.svg" alt="Bookshelf" />
+          <img src="./img/bookshelf.svg" alt="Bookshelf" />
           <div class="text-content">
             <p class="card-header">Learning materials!</p>
             <span class="card-subheader">
@@ -113,9 +123,9 @@
 
     <footer>
       <div class="frame">
-        <a href="#"><img src="./img/icons8-linkedin.svg" /></a>
-        <a href="#"><img src="./img/icons8-twitterx.svg" /></a>
-        <a href="#"><img src="./img/icons8-instagram.svg" /></a>
+        <a href="#"><img src="./img/linkedin.svg" /></a>
+        <a href="#"><img src="./img/twitterx.svg" /></a>
+        <a href="#"><img src="./img/instagram.svg" /></a>
       </div>
       <div class="links">
         <a href="#about">About Us</a>
@@ -124,7 +134,8 @@
       </div>
       <span id="copyright">EduNest © 2023</span>
     </footer>
+
+    <script type="module" src="./js/navbar.js"></script>
+    <script src="./js/index.js"></script>
   </body>
-  <script type="module" src="./js/navbar.js"></script>
-  <script src="./js/index.js"></script>
 </html>

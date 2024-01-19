@@ -78,6 +78,7 @@ export function initStyle() {
 }
 function addTogglePasswordEventListener(button, input, eyeIconId) {
   var eyeIcon = document.getElementById(eyeIconId);
+  /*
   button.addEventListener("mousedown", function () {
     input.type = "text";
     eyeIcon.className = "fas fa-eye-slash";
@@ -90,6 +91,19 @@ function addTogglePasswordEventListener(button, input, eyeIconId) {
     input.type = "password";
     eyeIcon.className = "fas fa-eye";
   });
+*/
+
+  button.addEventListener("click", function () {
+    if (input.type === "password") {
+      input.type = "text";
+      eyeIcon.className = "fas fa-eye-slash";
+    } else {
+      input.type = "password";
+      eyeIcon.className = "fas fa-eye";
+    }
+  });
+
+
 }
 
 export function initAuth() {
