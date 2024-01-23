@@ -1,14 +1,6 @@
 import { auth, db, ref, onValue } from '../firebaseConfig.js';
 
 
-const hamburgerIcon = document.getElementById('hamburger-icon');
-const navContainer = document.getElementById('nav-container');
-const navLinks = document.getElementById('nav-links');
-hamburgerIcon.addEventListener('click', () => {
-  navContainer.classList.toggle('show');
-});
-
-
 // Check if the user's name is stored in localStorage
 const storedName = localStorage.getItem('userDisplayName');
 
@@ -21,13 +13,13 @@ if (storedName) {
       <img src="./img/avatars/default.png" alt="User Avatar" id="user-avatar">
       ${storedName}
     </a>
-    <button id="sign-out-btn" class="link-navbar">Sign out</button>
+    <button id="sign-out-btn" class="btn">Sign out</button>
   `;
 } else {
   // If the user's name is not stored, show the default state
   userInfo.innerHTML = `
     <a href="auth.html?form=login" id="log-in">Log in</a>
-    <button id="sign-up-btn" class="link-navbar" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
+    <button id="sign-up-btn" class="btn" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
   `;
 }
 
@@ -60,21 +52,19 @@ auth.onAuthStateChanged(user => {
       // Store the user's name in localStorage
       localStorage.setItem('userDisplayName', userDisplayName);
 
-      // Update the userInfo element that is in the navbar
       userInfo.innerHTML = `
         <a href="account.html" id="account">
           <img src="./img/avatars/default.png" alt="User Avatar" id="user-avatar">
           ${userDisplayName}
         </a>
-        <button id="sign-out-btn" class="link-navbar">Sign out</button>
+        <button id="sign-out-btn" class="btn">Sign out</button>
       `;
     });
   } else {
     // User is not signed in.
-    // Update the userInfo element that is in the navbar
     userInfo.innerHTML = `
       <a href="auth.html?form=login" id="log-in">Log in</a>
-      <button id="sign-up-btn" class="link-navbar" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
+      <button id="sign-up-btn" class="btn" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
     `;
   }
 });

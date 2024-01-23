@@ -8,28 +8,51 @@
     <link rel="stylesheet" href="./css/navbar.css" />
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
     <link rel="stylesheet" href="./css/styleguide.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
   </head>
   <body>
-    <header class="navbar">
-      <a href="index.html"
-        ><img src="./img/logo.svg" alt="Logo" class="logo"
-      /></a>
-      <nav id="nav-links">
-        <a href="./courses.html" class="underline-effect nav-link">Courses</a>
-        <a href="#" class="underline-effect nav-link">Assignments</a>
-        <a href="#" class="underline-effect nav-link">Quizzes</a>
-        <a href="#" class="underline-effect nav-link">Discussion<br />board</a>
-        <span id="span-redtag-tag">New</span>
-        <a href="#" class="underline-effect nav-link">Leaderboard</a>
-        <a href="#" class="underline-effect nav-link">Articles</a>
-        <a href="#" class="underline-effect nav-link">Progress</a>
-      </nav>
-      <div id="user-info">
-   
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="./img/logo.svg" alt="Logo" class="logo"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="order-1 order-lg-2 mb-3 mb-lg-0">
+          <div id="user-info">
+            <a href="auth.html?form=login" id="log-in">Log in</a>
+            <button id="sign-up-btn" class="btn" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
+          </div>
+        </div>
+        <div class="order-2 order-lg-1">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link underline-effect" href="./courses.html">Courses</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Assignments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Quizzes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Discussion board</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Progress</a>
+          </li>
+        </ul>
       </div>
     </header>
     <main>
@@ -137,6 +160,7 @@
         </div>
       </div>
     </main>
+  <script type="module" src="./js/navbar.js"></script>
   </body>
   <script type="module">
     import { initAuth } from "./js/auth.js";
@@ -144,5 +168,4 @@
     initStyle();
     initAuth();
   </script>
-  <script type="module" src="./js/navbar.js"></script>
 </html>

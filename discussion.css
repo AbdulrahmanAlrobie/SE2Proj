@@ -4,7 +4,7 @@
   --chat-bubble-background: #2c4b62;
   --chat-bubble-active-background: #171a1b;
   --chat-add-button-background: #212324;
-  --chat-send-button-background: #7ADCF2;
+  --chat-send-button-background: #7adcf2;
   --chat-text-color: #a3a3a3;
   --chat-options-svg: #a3a3a3;
 }
@@ -183,7 +183,7 @@ body {
   border-radius: 12px;
   padding: 0 1em;
   height: 55px;
-  margin: 0.5em 0 0; 
+  margin: 0.5em 0 0;
 }
 #chat .chat__conversation-panel__container {
   display: flex;
@@ -250,13 +250,13 @@ body {
   border: 0;
   font-family: "Lato", sans-serif;
   resize: none;
-  white-space: pre-wrap;       /* CSS3 */
-  white-space: -moz-pre-wrap;  /* Firefox */
-  white-space: -pre-wrap;      /* Opera <7 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  overflow-wrap: break-word;   /* CSS3 */
-  word-wrap: break-word;       /* IE */
-  overflow: auto;              /* Scrollbar if needed */
+  white-space: pre-wrap; /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  overflow-wrap: break-word; /* CSS3 */
+  word-wrap: break-word; /* IE */
+  overflow: auto; /* Scrollbar if needed */
 }
 
 @media only screen and (max-width: 600px) {

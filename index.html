@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
@@ -14,36 +15,59 @@
     <title>EduNest</title>
   </head>
   <body>
-    <header class="navbar">
-      <a href="index.html">
-        <img src="./img/logo.svg" alt="Logo" class="logo">
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="./img/logo.svg" alt="Logo" class="logo"/>
       </a>
-    
-      <div id="hamburger-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    
-      <div id="nav-container">
-        <nav id="nav-links">
-          <a href="./courses.html" class="underline-effect nav-link">Courses</a>
-          <a href="#" class="underline-effect nav-link">Assignments</a>
-          <a href="#" class="underline-effect nav-link">Quizzes</a>
-          <a href="#" class="underline-effect nav-link">Discussion<br />board</a>
-          <span id="span-redtag-tag">New</span>
-          <a href="#" class="underline-effect nav-link">Leaderboard</a>
-          <a href="#" class="underline-effect nav-link">Articles</a>
-          <a href="#" class="underline-effect nav-link">Progress</a>
-        </nav>
-        <div id="user-info"></div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="order-1 order-lg-2 mb-3 mb-lg-0">
+          <div id="user-info">
+            <a href="auth.html?form=login" id="log-in">Log in</a>
+            <button id="sign-up-btn" class="btn" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
+          </div>
+        </div>
+        <div class="order-2 order-lg-1">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link underline-effect" href="./courses.html">Courses</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Assignments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Quizzes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Discussion board</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Leaderboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link underline-effect" href="#">Progress</a>
+          </li>
+        </ul>
       </div>
     </header>
+    
+    
+    
 
     <main>
-      <div class="hero">
-        <div class="content">
+      <div class="hero jumbotron">
+        <div class="content container">
           <img class="blob" src="./img/blob.svg" alt="Blob Image" />
+          <img
+            id="autumn-study-male"
+            src="./img/autumn-study-male.svg"
+            alt="Autumn Study Male Image"
+          />
           <div class="text-content">
             <span id="welcome">Welcome to <strong>EduNest</strong></span>
             <p class="text-wrapper">
@@ -52,63 +76,50 @@
               something useful and interesting here. 🙌
             </p>
             <button
-              class="primary-button primary-button-text"
+              class="btn"
               id="explore-button"
             >
               Explore all courses
             </button>
           </div>
-          <img
-            id="blob-container"
-            src="./img/blob-container.svg"
-            alt="Blob Container Image"
-          />
-          <img
-            id="autumn-study-male"
-            src="./img/autumn-study-male.svg"
-            alt="Autumn Study Male Image"
-          />
         </div>
       </div>
-
-      <div class="card">
-        <div class="card-item">
-          <img src="./img/bookshelf.svg" alt="Bookshelf" />
-          <div class="text-content">
-            <p class="card-header">Learning materials!</p>
-            <span class="card-subheader">
-              Expand your knowledge with a vast variety of courses in the domain
-              of computer science.
-            </span>
+    
+      <div class="card container">
+        <div class="row">
+          <div class="card-item col-12 col-md-4 d-flex align-items-center">
+            <img src="./img/bookshelf.svg" alt="Bookshelf" />
+            <div class="text-content">
+              <p class="card-header">Learning materials!</p>
+              <span class="card-subheader">
+                Expand your knowledge with a vast variety of courses in the domain
+                of computer science.
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="card-item">
-          <img
-            src="./img/female-student-question.svg"
-            alt="Questioning Student"
-          />
-          <div class="text-content" id="middle-card-text">
-            <p class="card-header">Assignments and quizzes!</p>
-            <span class="card-subheader">
-              Fun and challenging questions that test and improve your knowledge
-              and skills.
-            </span>
+          <div class="card-item col-12 col-md-4 d-flex align-items-center">
+            <img src="./img/female-student-question.svg" alt="Questioning Student" />
+            <div class="text-content">
+              <p class="card-header">Assignments and quizzes!</p>
+              <span class="card-subheader">
+                Fun and challenging questions that test and improve your knowledge
+                and skills.
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="card-item">
-          <img
-            src="./img/students-doing-a-guts-pose.svg"
-            alt="Students Doing a Guts Pose"
-          />
-          <div class="text-content">
-            <p class="card-header">Collaboration and competition!</p>
-            <span class="card-subheader">
-              Participate in discussions and competitions with other users.
-            </span>
+          <div class="card-item col-12 col-md-4 d-flex align-items-center">
+            <img src="./img/students-doing-a-guts-pose.svg" alt="Students Doing a Guts Pose" />
+            <div class="text-content">
+              <p class="card-header">Collaboration and competition!</p>
+              <span class="card-subheader">
+                Participate in discussions and competitions with other users.
+              </span>
+            </div>
           </div>
         </div>
       </div>
-
+      
+    
       <div class="text-content" id="about">
         <p class="about-header">About us</p>
         <p class="about-subheader">
@@ -120,22 +131,28 @@
         </p>
       </div>
     </main>
+    
 
-    <footer>
-      <div class="frame">
-        <a href="#"><img src="./img/linkedin.svg" /></a>
-        <a href="#"><img src="./img/twitterx.svg" /></a>
-        <a href="#"><img src="./img/instagram.svg" /></a>
+    <footer class="container-fluid bg-light text-center text-lg-start">
+      <div class="row">
+        <div class="col-12 col-lg-4 py-3 order-2 order-lg-1">
+          <a href="#about">About Us</a> |
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Terms of Use</a>
+        </div>
+        <div class="col-12 col-lg-4 py-3 order-1 order-lg-2">
+          <a href="#"><img src="./img/linkedin.svg" width="30" height="30" /></a>
+          <a href="#"><img src="./img/twitterx.svg" width="30" height="30" /></a>
+          <a href="#"><img src="./img/instagram.svg" width="30" height="30" /></a>
+        </div>
+        <div class="col-12 col-lg-4 py-3 order-3">
+          <span id="copyright">EduNest © 2024</span>
+        </div>
       </div>
-      <div class="links">
-        <a href="#about">About Us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-      </div>
-      <span id="copyright">EduNest © 2023</span>
-    </footer>
+    </footer>    
 
     <script type="module" src="./js/navbar.js"></script>
     <script src="./js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -2,12 +2,6 @@ body {
   overflow-x: hidden;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Hero section styles */
 
 .hero {
@@ -19,86 +13,16 @@ body {
   border-radius: 0 0 32px 32px;
 }
 
-.overlap-group {
-  position: absolute;
-  top: 0;
-}
-
-main .blob {
-  position: relative;
-}
-
-#blob-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 600px;
-  height: auto;
-  overflow: hidden;
-  border-radius: 0 0 32px 32px;
-}
-
-#autumn-study-male {
-  position: absolute;
-  display: flex;
-  bottom: -20px;
-  right: 10px;
-  width: 550px;
-  height: auto;
-}
-
-.hero img {
-  object-fit: cover;
-}
-
-.primary-button-text {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: 18px;
-  white-space: nowrap;
-}
-
-.primary-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 40px;
-  background-color: #333333;
-  border-radius: 40px;
-  box-shadow: 8px 12px 0px #111111;
-  transition: transform 0.3s ease;
-}
-
-.primary-button:active {
-  box-shadow: none;
-  transform: translate(4px, 4px);
-}
-
-.primary-button:hover {
-  cursor: pointer;
-}
-
 /* Card styles */
 
 .card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
-  background-color: #ffffff;
-  border-radius: 32px;
   border: 1px solid #111111;
-}
-
-.card .card-item {
-  display: flex;
-  align-items: center;
+  max-width: 800px;
+  margin: 1em auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 32px !important;
+  padding: 1em;
 }
 
 .card .card-item img {
@@ -111,8 +35,7 @@ main .blob {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  top: -10em;
-  left: -25em;
+  z-index: 3;
 }
 
 .text-content #welcome {
@@ -121,13 +44,60 @@ main .blob {
   width: 100%;
   font-family: Poppins, "Courier New", monospace;
   font-size: 40px;
-  left: -20px;
-  top: 0.55em;
+  right: inherit;
 }
+
+.text-content .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 40px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-left: 10%;
+  margin-bottom: 1em;
+  font-family: "Poppins-Medium", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 18px;
+  white-space: nowrap;
+  background-color: #333;
+  border-radius: 40px;
+  box-shadow: 8px 12px 0px #111;
+  transition: transform 0.3s ease;
+}
+
+.text-content .btn:active {
+  box-shadow: none;
+  color: #fff !important;
+  background-color: #333 !important;
+  transform: translate(4px, 4px);
+}
+
+.text-content .btn:hover {
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+#autumn-study-male {
+  position: absolute;
+  bottom: 0;
+  width: clamp(30vh, 65vh, 80vh);
+  right: 10vh;
+  height: auto;
+  overflow: hidden;
+  border-radius: 0 0 32px 32px;
+  z-index: 1;
+}
+
 
 main .text-wrapper {
   position: relative;
-  width: 525px;
+  width: 50%;
   font-family: "Poppins-Regular", Helvetica;
   font-weight: 400;
   color: #252525;
@@ -153,10 +123,13 @@ main .text-wrapper {
 }
 
 #about {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  width:100%;
-  margin:3em 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 3em auto;
+  padding: 1em;
   background-color: #f4f4f4;
   border-radius: 32px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
@@ -164,7 +137,7 @@ main .text-wrapper {
 .about-header {
   font-size: 2em;
   color: #333;
-  margin-bottom: -0.6em;
+  margin-bottom: 0.4rem;
 }
 
 .about-subheader {
@@ -175,44 +148,65 @@ main .text-wrapper {
 }
 
 
-@media (max-width: 768px) {
-  .card {
-    flex-direction: column;
-  }
-
+@media (max-width: 767px) {
   .blob {
-    /* display: ; */
-    visibility: hidden;
+    display: none;
   }
 
-  #blob-container{
-    bottom:21em;
-    width:100%;
+
+  .text-content #welcome {
+    font-size: 30px;
   }
 
-  #autumn-study-male{
-    bottom:20em;
-    width:90%;
-    
+  main .text-wrapper {
+    width: 100%;
+    font-size: 20px;
+    line-height: 30px;
   }
 
-  .hero .text-content{
-    top:0;
-    left:0;
-    padding:1em 0;
+  .card-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.5em;
   }
 
-  .primary-button {
-    position: absolute;
-    top:127%;
-    left:50%;
-    width:40%;
-    height: auto;
-    transform: translate(-50%,-50%);
+  .card .card-item img {
+    width: 150px;
+  }
+
+  .text-content {
+    padding: 1em;
   }
 
   .hero {
-    height: calc(100vh - 100px);
+    display: flex;
+flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  #autumn-study-male {
+    position: relative;
+    bottom: unset;
+    left: 50%;
+    transform:translateX(-50%);
+    width: 80vw;
+
+    height: auto;
   }
 
+  .hero .text-content {
+    position: relative; 
+    margin-bottom: 1em;
+    text-align: center;
+    right: inherit;
+    top: inherit; 
+  }
+}
+
+
+@media (max-width:1200){
+  .blob{
+    display: inline;
+  }
 }
