@@ -1,6 +1,8 @@
 import {
+  auth,
   db,
   set,
+  get,
   push,
   ref,
   onValue,
@@ -43,14 +45,11 @@ sendMessageButton.addEventListener('click', function () {
     return
   }
   const newMessageRef = push(child(ref(db), 'messages'))
+  const userUid = auth.currentUser.uid;
   set(newMessageRef, {
-    avatar: './img/avatars/default.png',
-    displayName: localStorage.getItem('userDisplayName')
-      ? localStorage.getItem('userDisplayName')
-      : 'Guest',
-    displayNameColor: 'cyan',
+    sender: userUid,
     message: messageInput.value,
-    timestamp: Date.now()
+    timestamp: new Date().toLocaleString(),
   })
 
   if (
@@ -75,49 +74,53 @@ onValue(messagesRef, snapshot => {
   })
 })
 // Function to display a message
-function displayMessage (message) {
+async function displayMessage (message) {
+  // Fetch user settings from Firebase
+  const userSettingsSnapshot = await get(child(ref(db), `userSettings/${message.sender}`));
+  const userSettings = userSettingsSnapshot.val();
+
   // Create a new message container
-  const messageContainer = document.createElement('div')
-  messageContainer.className = 'chat__conversation-board__message-container'
+  const messageContainer = document.createElement('div');
+  messageContainer.className = 'chat__conversation-board__message-container';
 
   // Create the person div
-  const personDiv = document.createElement('div')
-  personDiv.className = 'chat__conversation-board__message__person'
-  messageContainer.appendChild(personDiv)
+  const personDiv = document.createElement('div');
+  personDiv.className = 'chat__conversation-board__message__person';
+  messageContainer.appendChild(personDiv);
 
   // Add avatar
-  const avatarDiv = document.createElement('div')
-  avatarDiv.className = 'chat__conversation-board__message__person__avatar'
-  const avatarImg = document.createElement('img')
-  avatarImg.src = message.avatar
-  avatarImg.alt = message.displayName
-  avatarImg.style.backgroundColor = 'white'
-  avatarDiv.appendChild(avatarImg)
-  personDiv.appendChild(avatarDiv)
+  const avatarDiv = document.createElement('div');
+  avatarDiv.className = 'chat__conversation-board__message__person__avatar';
+  const avatarImg = document.createElement('img');
+  avatarImg.src = userSettings.avatar; // Use avatar from user settings
+  avatarImg.alt = userSettings.displayName; // Use display name from user settings
+  avatarImg.style.backgroundColor = userSettings.avatarBackground; // Use avatar background from user settings
+  avatarDiv.appendChild(avatarImg);
+  personDiv.appendChild(avatarDiv);
 
   // Add display name
-  const displayNameSpan = document.createElement('span')
-  displayNameSpan.className =
-    'chat__conversation-board__message__person__nickname'
-  displayNameSpan.textContent = message.displayName
-  displayNameSpan.style.color = message.displayNameColor
-  personDiv.appendChild(displayNameSpan)
+  const displayNameSpan = document.createElement('span');
+  displayNameSpan.className = 'chat__conversation-board__message__person__nickname';
+  displayNameSpan.textContent = userSettings.displayName; // Use display name from user settings
+  displayNameSpan.style.color = '#444'; // Use display color from user settings
+  personDiv.appendChild(displayNameSpan);
 
   // Create the context div
-  const contextDiv = document.createElement('div')
-  contextDiv.className = 'chat__conversation-board__message__context'
-  messageContainer.appendChild(contextDiv)
+  const contextDiv = document.createElement('div');
+  contextDiv.className = 'chat__conversation-board__message__context';
+  messageContainer.appendChild(contextDiv);
 
   // Add message bubble
-  const bubbleDiv = document.createElement('div')
-  bubbleDiv.className = 'chat__conversation-board__message__bubble'
-  const bubbleSpan = document.createElement('span')
-  bubbleSpan.textContent = message.message
-  bubbleDiv.appendChild(bubbleSpan)
-  contextDiv.appendChild(bubbleDiv)
+  const bubbleDiv = document.createElement('div');
+  bubbleDiv.className = 'chat__conversation-board__message__bubble';
+  const bubbleSpan = document.createElement('span');
+  bubbleSpan.textContent = message.message;
+  bubbleDiv.appendChild(bubbleSpan);
+  contextDiv.appendChild(bubbleDiv);
 
-  conversationBoard.appendChild(messageContainer)
+  conversationBoard.appendChild(messageContainer);
 }
+
 
 // Listen for new messages
 onValue(messagesRef, snapshot => {

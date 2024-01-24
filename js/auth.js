@@ -160,10 +160,18 @@ export function initAuth() {
             const user = userCredential.user;
             set(ref(db, "users/" + user.uid), {
               username: username,
-              displayName: displayName ?? username,
               email: email,
               role: "user",
+              created: new Date(),
             });
+
+            set(ref(db, "userSettings/" + user.uid), {
+              displayName: displayName ?? username,
+              displayColor: "#09a5e999",
+              avatar: "./img/avatars/default.png",
+              avatarBackground: "#ececec",
+            });
+          
             set(ref(db, "usernames/" + username), user.uid);
           })
           .catch((error) => {
