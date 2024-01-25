@@ -90,6 +90,8 @@ document
   })
 
 document.getElementById('saveCourse').addEventListener('click', function () {
+  const courseTitle = document.getElementById('courseTitle').value
+  const courseDescription = document.getElementById('courseDescription').value
   // Check if the course title or description is empty
   if (!courseTitle.trim() || !courseDescription.trim()) {
     alert('Please fill in all the required fields.')
@@ -111,10 +113,6 @@ document.getElementById('saveCourse').addEventListener('click', function () {
               alert('Only admins can create courses.')
               return
             } else {
-              // Get the form values
-              const courseTitle = document.getElementById('courseTitle').value
-              const courseDescription =
-                document.getElementById('courseDescription').value
               const courseImageFileElement =
                 document.getElementById('courseImage')
               let courseImageFile = courseImageFileElement.files[0]
