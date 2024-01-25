@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp, } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getDatabase,
   set,
@@ -7,6 +7,7 @@ import {
   ref,
   child,
   get,
+  onChildAdded,
   onValue,
   remove,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
@@ -19,10 +20,13 @@ import {
   browserLocalPersistence,
   browserSessionPersistence,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getAnalytics, } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+import {
+  getStorage,
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 const firebaseConfig = {
   apiKey: "AIzaSyD6ZB30EJWoiK3dHefpjHSIG1-2fsl4eYA",
   authDomain: "edunest-2d87c.dbapp.com",
@@ -43,8 +47,8 @@ const analytics = getAnalytics(app);
 const storage = getStorage();
 
 export { db, auth, analytics, };
-export { getStorage, storage, storageRef, uploadBytes, getDownloadURL };
-export { set, push, ref, child, get, remove, onValue, };
+export { getStorage, storage, storageRef, uploadBytes, getDownloadURL, };
+export { set, push, ref, child, get, onChildAdded, remove, onValue, };
 export {
   getAuth,
   setPersistence,

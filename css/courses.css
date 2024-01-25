@@ -1,14 +1,106 @@
-body{
+body {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
 }
 
-.courses-container {
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   overflow-y: auto;
   height: 50vh;
-  background-color: grey;
+  width: 90%;
+  background-color: #e9ecef;
+  padding: 2em;
   margin: 2em 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #create-course-btn {
-margin-bottom: 2em;
+  margin-bottom: 2em;
+  align-self: center;
+}
+
+.card {
+  margin: 1em;
+  width: 200px; 
+  height: 300px;  
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  padding: 1em;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  height: 100px;  /* Adjust as needed */
+}
+
+.card h5 {
+  margin-top: 10px;
+}
+
+.large-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; /* Adjust as needed */
+  max-width: 800px;
+  z-index: 1000;
+  display: none;
+  background: #fff;
+  padding: 1em;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.large-card.active {
+  display: block;
+}
+
+.large-card img {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;  /* Adjust as needed */
+}
+
+.large-card .card-body {
+  padding: 1em;
+}
+
+.large-card .card-title {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.large-card .card-text {
+  margin: 0.5em 0;
+}
+
+.large-card .enroll-btn {
+  display: block;
+  margin: 1em auto;
+}
+
+.exit-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
 }
