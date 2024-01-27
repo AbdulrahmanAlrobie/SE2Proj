@@ -80,22 +80,21 @@ function displayChapter (chapterData, chapterId) {
 
   document.querySelector('.course-content .row').appendChild(chapterDiv)
 
-//Check if the current user is an admin then create the create-lesson-btn if they are!
-if (userRole === 'admin') {
-  const createLessonBtn = document.createElement('button');
-  createLessonBtn.id = 'create-lesson-btn-' + chapterId;
-  createLessonBtn.className = 'btn btn-primary float-end';
-  createLessonBtn.textContent = 'Create Lesson';
+  //Check if the current user is an admin then create the create-lesson-btn if they are!
+  if (userRole === 'admin') {
+    const createLessonBtn = document.createElement('button')
+    createLessonBtn.id = 'create-lesson-btn-' + chapterId
+    createLessonBtn.className = 'btn btn-primary float-end'
+    createLessonBtn.textContent = 'Create Lesson'
 
-  createLessonBtn.addEventListener('click', function () {
-    // Store the current chapter ID in a global variable
-    window.currentChapterId = chapterId
-    // Show the lesson creation modal
-    lessonModal.show()
-  })
-  document.querySelector('.card-header').appendChild(createLessonBtn);
-}
- 
+    createLessonBtn.addEventListener('click', function () {
+      // Store the current chapter ID in a global variable
+      window.currentChapterId = chapterId
+      // Show the lesson creation modal
+      lessonModal.show()
+    })
+    document.querySelector('.card-header').appendChild(createLessonBtn)
+  }
 
   // Fetch the lessons for this chapter
   const lessonsRef = ref(
@@ -129,7 +128,7 @@ auth.onAuthStateChanged(user => {
       .then(snapshot => {
         const userData = snapshot.val()
         if (userData) {
-            userRole = userData.role
+          userRole = userData.role
           if (userRole === 'admin') {
             const row = document.querySelector('main .row')
             const createChapterBtn = document.createElement('button')
