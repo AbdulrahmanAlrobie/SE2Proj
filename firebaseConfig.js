@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getDatabase,
@@ -10,6 +9,7 @@ import {
   onChildAdded,
   onValue,
   remove,
+  off
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import {
   getAuth,
@@ -48,7 +48,7 @@ const storage = getStorage();
 
 export { db, auth, analytics, };
 export { getStorage, storage, storageRef, uploadBytes, getDownloadURL, };
-export { set, push, ref, child, get, onChildAdded, remove, onValue, };
+export { set, push, ref, child, get, onChildAdded, remove, onValue, off};
 export {
   getAuth,
   setPersistence,

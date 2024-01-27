@@ -11,7 +11,7 @@ const userInfo = document.getElementById('user-info');
 if (storedName) {
   // If the user's name is stored, use it
   userInfo.innerHTML = `       
-    <a href="account.html" id="account">
+    <a href="/account.html" id="account">
       <img src="${storedAvatar}" alt="User Avatar" id="user-avatar" style="background-color: ${storedBackground}">
       ${storedName}
     </a>
@@ -21,8 +21,8 @@ if (storedName) {
 } else {
   // If the user's name is not stored, show the default state
   userInfo.innerHTML = `
-    <a href="auth.html?form=login" id="log-in">Log in</a>
-    <button id="sign-up-btn" class="btn" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
+    <a href="/auth.html?form=login" id="log-in">Log in</a>
+    <button id="sign-up-btn" class="btn" onclick="window.location.href ='/auth.html?form=signup'">Sign up</button>
   `;
 }
 
@@ -63,7 +63,7 @@ auth.onAuthStateChanged(user => {
       localStorage.setItem('userDisplayColor', userDisplayColor);
       localStorage.setItem('userBackground', userBackground);
       userInfo.innerHTML = `
-        <a href="account.html" id="account">
+        <a href="/account.html" id="account">
           <img src="${userAvatar}" alt="User Avatar" id="user-avatar" style="background-color: ${userBackground}">
           ${userDisplayName}
         </a>
@@ -74,8 +74,8 @@ auth.onAuthStateChanged(user => {
   } else {
     // User is not signed in.
     userInfo.innerHTML = `
-      <a href="auth.html?form=login" id="log-in">Log in</a>
-      <button id="sign-up-btn" class="btn" onclick="window.location.href ='auth.html?form=signup'">Sign up</button>
+      <a href="/auth.html?form=login" id="log-in">Log in</a>
+      <button id="sign-up-btn" class="btn" onclick="window.location.href ='/auth.html?form=signup'">Sign up</button>
     `;
   }
 });

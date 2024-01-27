@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/account.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <script src="./js/account.js"></script>
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,52 +52,70 @@
         </ul>
       </div>
     </header>
-    <main>
+    <main class="container">
       <div class="background">
-        <h1>Hello Display name</h1>
+        <h1 id="quote"></h1>
       </div>
-      <div class="info">
-        <div class="upper-cards">
-          <div class="card details">
+      <div class="row">
+        <div class="col-lg-8 order-lg-1 order-2">
+          <div class="card">
             <div class="card-header">
               <h2>Personal information</h2>
             </div>
-            <div class="user-info">
-              <div class="input-group">
-                <div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
                   <label>Username</label>
-                  <input type="text" />
+                  <input type="text" class="form-control" />
                 </div>
-                <div>
+                <div class="col-md-6">
                   <label>Email address</label>
-                  <input type="text" />
+                  <input type="text" class="form-control" />
                 </div>
               </div>
-              <div class="input-group">
-                <div>
+              <div class="row">
+                <div class="col-md-6">
                   <label>Password</label>
-                  <input type="password" />
+                  <input type="password" class="form-control" />
                 </div>
-                <div id="confirm">
+                <div class="col-md-6">
                   <label>Confirm password</label>
-                  <input type="password" />
+                  <input type="password" class="form-control" />
                 </div>
               </div>
+              <button class="btn update mt-3">Update</button>
+              <button class="btn delete mt-3">Delete account</button>
             </div>
-            <button class="update">Update</button>
-            <button class="delete">Delete account</button>
-          </div>
-          <div class="card avatar">
-            <img src="./img/avatars/default.png" alt="Avatar" />
-            <h4>Display name</h4>
-            <p>يختار لون للعصفور ويغير اسم/لون العرض هنا</p>
           </div>
         </div>
-        <div class="card progress">
-          <h2>Progress</h2>
-          هنا تطلع الشارات (اذا خلص كورس او.. تحدي؟)<br />و احصائيات (مثل كم من
-          الكورسات خلص، وممكن قراف يطلع الدروس بالنسبة لليوم او الي هو) وافكر
-          احط ستريك يومي
+        <div class="col-lg-4 order-lg-2 order-1">
+          <div class="card">
+            <img id="avatar" src="./img/avatars/default.png" class="card-img-top" alt="Avatar" />
+            <div class="card-body">
+              <h4 class="card-title" id="display-name"></h4>
+              <p class="card-text">يختار لون للعصفور ويغير اسم/لون العرض هنا</p>
+              <div class="dropdown">
+                Avatar color
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+           
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Progress</h2>
+              هنا تطلع الشارات (اذا خلص كورس او.. تحدي؟)<br />و احصائيات (مثل كم من الكورسات خلص، وممكن قراف يطلع الدروس بالنسبة لليوم او الي هو) وافكر احط ستريك يومي
+            </div>
+          </div>
         </div>
       </div>
     </main>

@@ -1,0 +1,12 @@
+.course-content {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+  }
+  .course-image {
+    width: 20%;
+    max-width: 500px;
+    height: auto;
+    margin: auto;
+    border-radius: 20px;
+  }

@@ -149,7 +149,7 @@ export function initAuth () {
     const displayName =
       document.getElementById('sign-up-display-name').value.trim() || username
 
-    get(ref(db, 'usernames/' + username)).then(snapshot => {
+    get(ref(db, 'usernames/' + username.toLowerCase())).then(snapshot => {
       if (snapshot.exists()) {
         alert('This username is already taken. Please choose a different one.')
       } else {
@@ -166,11 +166,11 @@ export function initAuth () {
             set(ref(db, 'userSettings/' + user.uid), {
               displayName: displayName ?? username,
               displayColor: '#09a5e999',
-              avatar: './img/avatars/default.png',
+              avatar: '/img/avatars/default.png',
               avatarBackground: '#ececec'
             })
 
-            set(ref(db, 'usernames/' + username), user.uid)
+            set(ref(db, 'usernames/' + username.toLowerCase()), user.uid)
           })
           .catch(error => {
             alert(error.message)

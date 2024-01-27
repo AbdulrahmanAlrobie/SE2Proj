@@ -148,6 +148,39 @@ main .text-wrapper {
 }
 
 
+@media (max-width:1200px) {
+  #autumn-study-male{
+  right: 1vh;
+  }
+  .card .card-item img{
+    width: 150px;
+  }
+
+  .text-content{
+    font-size: 90%;
+  }
+}
+
+@media (max-width:992px){
+
+  #autumn-study-male{
+    width: 22em;
+  right: 1vh;
+  }
+
+  .blob{
+    display: inline;
+  }
+  .card .card-item img{
+    width: 80px;
+  }
+
+  .text-content{
+    font-size: 90%;
+  }
+}
+
+
 @media (max-width: 767px) {
   .blob {
     display: none;
@@ -205,8 +238,3 @@ flex-direction: column;
 }
 
 
-@media (max-width:1200){
-  .blob{
-    display: inline;
-  }
-}
