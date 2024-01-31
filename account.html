@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courses</title>
+    <title>Account</title>
+    
     <link rel="stylesheet" href="./css/styleguide.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/navbar.css" />
     <link rel="stylesheet" href="./css/account.css" />
     <link rel="stylesheet" href="./css/footer.css" />
-    <script src="./js/account.js"></script>
+    <script type="module" src="./js/account.js"></script>
+    <script src="./js/Button.js"></script>
   </head>
   <body>
     <header class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,7 +56,10 @@
     </header>
     <main class="container">
       <div class="background">
-        <h1 id="quote"></h1>
+        <blockquote class="blockquote text-center">
+          <p id="quote" class="mb-0"></p>
+          <footer class="blockquote-footer" id="author"></footer>
+        </blockquote>
       </div>
       <div class="row">
         <div class="col-lg-8 order-lg-1 order-2">
@@ -90,22 +95,21 @@
         </div>
         <div class="col-lg-4 order-lg-2 order-1">
           <div class="card">
-            <img id="avatar" src="./img/avatars/default.png" class="card-img-top" alt="Avatar" />
+            <img id="avatar" src="./img/avatars/01.png" class="card-img-top" alt="Avatar" />
             <div class="card-body">
               <h4 class="card-title" id="display-name"></h4>
-              <p class="card-text">يختار لون للعصفور ويغير اسم/لون العرض هنا</p>
-              <div class="dropdown">
-                Avatar color
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
+              
            
+            </div>
+            <div class="avatar-change-container">
+              <img class="avatar-change" src= "./img/avatars/1.png"  onclick="change1()"/>
+              <img class="avatar-change" src= "./img/avatars/2.png"  onclick="change2()"/>
+              <img class="avatar-change" src= "./img/avatars/3.png"  onclick="change3()"/>
+              <img class="avatar-change" src= "./img/avatars/4.png"  onclick="change4()"/>
+              <img class="avatar-change" src= "./img/avatars/01.png" onclick="change5()"/>
+            </div>
+           
+          </div>
         </div>
       </div>
       <div class="row">
@@ -122,17 +126,17 @@
 
     <footer class="container-fluid bg-light text-center text-lg-start">
       <div class="row">
-        <div class="col-12 col-lg-4 py-3 text-lg-start text-center order-2 order-lg-1">
+        <div class="col-12 col-lg-4 py-3 order-2 order-lg-1">
           <a href="#about">About Us</a> |
           <a href="#">Privacy Policy</a> |
           <a href="#">Terms of Use</a>
         </div>
-        <div class="col-12 col-lg-4 py-3 text-center order-1 order-lg-2">
+        <div class="col-12 col-lg-4 py-3 order-1 order-lg-2">
           <a href="#"><img src="./img/linkedin.svg" width="30" height="30" /></a>
           <a href="#"><img src="./img/twitterx.svg" width="30" height="30" /></a>
           <a href="#"><img src="./img/instagram.svg" width="30" height="30" /></a>
         </div>
-        <div class="col-12 col-lg-4 py-3 text-lg-end text-center order-3">
+        <div class="col-12 col-lg-4 py-3 order-3">
           <span id="copyright">EduNest © 2024</span>
         </div>
       </div>
@@ -140,5 +144,6 @@
 
     <script type="module" src="./js/navbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
   </body>
 </html>

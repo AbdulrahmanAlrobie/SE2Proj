@@ -19,6 +19,7 @@ body {
 .card {
   margin: 10px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  
 }
 
 button.update {
@@ -28,3 +29,65 @@ button.update {
 button.delete {
   background-color: #f36d63;
 }
+
+
+.avatar-change-container {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.avatar-change {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  cursor: pointer;
+  border-radius: 100%; /* This will make the images circular */
+  transition: transform 0.2s ease; /* This will animate the scale transform */
+  border-bottom: 2px solid rgb(237, 4, 4);
+  border-color: bisque;
+  
+}
+.avatar-change:active { /* This will scale the image down when it is clicked */
+  transform: scale(0.7);
+}
+
+
+blockquote {
+  font-size: 1.5em;
+  width:70%;
+  margin:50px auto;
+  font-family:Arial;
+  color: #000000;
+  padding:1.2em 30px 1.2em 75px;
+  border: solid #e8e8e8 1px;
+  position: relative;
+  background:#f4fdff;
+}
+
+.blockquote::before {
+  font-family:Arial;
+  content: "\201C";
+  color:#7a7a7a;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+  
+}
+
+blockquote::after {
+  font-family:Arial;
+  content: "”";
+  color:#7a7a7a;
+  font-size:4em;
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+}
+
+.blockquote-footer {
+  font-size: .875em;
+  color: #938ba1;
+  margin: 0 0 2rem 0;
+}
+
+
